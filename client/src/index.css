@@ -1,0 +1,43 @@
+:root {
+  --color-primary: #96d557;
+
+  --color-yellow-light: #fffff5;
+  --color-yellow-regular: #efefe6;
+
+  --color-grey-light: #d9d9d9;
+  --color-grey-dark: #424242;
+
+  --color-red: #ff7272;
+  --color-white: #ffffff;
+  --color-blue-light: #b1f3eb;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 2.4rem;
+  color: var(--color-grey);
+  background-color: var(--color-yellow-light);
+}
+
+.container {
+  max-width: 142rem;
+  margin: 0 auto;
+}
+
+.tsqd-parent-container {
+  font-size: 1.8rem;
+}
