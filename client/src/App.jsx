@@ -3,7 +3,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { queryClient } from "./store/queryClient";
 
-import Navigation from "./ui/Navigation";
+import Main from "./pages/Main";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route index element={<Navigation />} />
+          <Route index element={<Main />} />
           <Route path="products" element={<p>Products</p>} />
 
           <Route>

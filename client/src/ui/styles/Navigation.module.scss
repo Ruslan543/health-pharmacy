@@ -1,0 +1,109 @@
+.navigation {
+  font-size: 1.6rem;
+  font-weight: 400;
+
+  display: flex;
+  align-items: center;
+
+  @media only screen and (max-width: 51.56em) {
+    gap: 1.5rem;
+    font-size: 2rem;
+  }
+}
+
+.logo {
+  display: block;
+  width: 7rem;
+  cursor: pointer;
+}
+
+.list {
+  margin-left: 7rem;
+  display: flex;
+  gap: 4.5rem;
+
+  @media only screen and (max-width: 51.56em) {
+    margin-left: 2rem;
+    gap: 2rem;
+  }
+
+  @media only screen and (max-width: 48em) {
+    display: none;
+  }
+}
+
+.item {
+}
+
+.link {
+  &:link,
+  &:visited {
+    // color: var(--color-grey-dark);
+  }
+
+  &:hover,
+  &:active {
+    color: var(--color-primary);
+  }
+}
+
+.auth {
+  margin-left: auto;
+}
+
+.navigation .auth {
+  @media only screen and (max-width: 38.75em) {
+    display: none;
+  }
+}
+
+.user {
+  margin-left: auto;
+}
+
+.user-navigation {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  &__basket {
+  }
+
+  &__icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    fill: var(--color-yellow-dark);
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    @media only screen and (max-width: 38.75em) {
+      display: none;
+    }
+
+    &:hover {
+      fill: var(--color-primary);
+    }
+  }
+
+  &__user-box {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__name {
+    @media only screen and (max-width: 38.75em) {
+      display: none;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+}

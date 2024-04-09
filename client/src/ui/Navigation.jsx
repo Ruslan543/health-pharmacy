@@ -1,45 +1,38 @@
-import styles from "./Navigation.module.css";
+import { Link } from "react-router-dom";
+
+import Search from "../features/Search";
+import AuthNavigation from "./AuthNavigation";
+import styles from "./styles/Navigation.module.scss";
 
 function Navigation() {
   return (
     <nav className={styles.navigation}>
-      <a href="/" className={styles.logoLink}>
+      <Link to="/" className={styles.logoLink}>
         <img className={styles.logo} src="/logo.svg" alt="Логотип компании" />
-      </a>
+      </Link>
 
-      <ul className="navigation__list">
-        <li className="navigation__item">
-          <a href="/about.html" className="navigation__link">
+      <ul className={styles.list}>
+        <li className={styles.item}>
+          <Link to="/about" className={styles.link}>
             О нас
-          </a>
+          </Link>
         </li>
 
-        <li className="navigation__item">
-          <a href="/products.html" className="navigation__link">
+        <li className={styles.item}>
+          <Link to="/products" className={styles.link}>
             Продукция
-          </a>
+          </Link>
         </li>
 
-        <li className="navigation__item">
-          <a href="#contacts" className="navigation__link">
+        <li className={styles.item}>
+          <Link to="#contacts" className={styles.link}>
             Контакты
-          </a>
+          </Link>
         </li>
       </ul>
 
-      <form className="navigation__search search">
-        <input className="search__input" type="text" placeholder="Поиск..." />
-      </form>
-
-      <div className="navigation__auth auth-navigation">
-        <a href="/registration.html" className="auth-navigation__signup">
-          Регистрация
-        </a>
-
-        <a href="/signin.html" className="btn-primary">
-          Войти
-        </a>
-      </div>
+      <Search />
+      <AuthNavigation />
     </nav>
   );
 }
