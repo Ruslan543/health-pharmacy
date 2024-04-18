@@ -3,7 +3,16 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { queryClient } from "./store/queryClient";
 
+import AppLayout from "./ui/AppLayout";
 import Main from "./pages/Main";
+import Products from "./pages/Products";
+import AccountLayout from "./ui/AccountLayout";
+import Account from "./pages/Account";
+import Settings from "./pages/Settings";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Cart from "./pages/Cart";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -12,20 +21,25 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route index element={<Main />} />
-          <Route path="products" element={<p>Products</p>} />
-
-          <Route>
-            <Route path="account" element={<p>Account</p>} />
-            <Route path="settings" element={<p>Settings</p>} />
-            <Route path="cart" element={<p>Cart</p>} />
-            <Route path="orders" element={<p>Orders</p>} />
-            <Route path="order/:id" element={<p>Order</p>} />
+          <Route element={<AppLayout />}>
+            <Route index element={<Main />} />
+            <Route path="products" element={<Products />} />
+            <Route path="about" element={<About />} />
           </Route>
 
           <Route>
-            <Route path="login" element={<p>Login</p>} />
-            <Route path="singup" element={<p>Singup</p>} />
+            <Route element={<AccountLayout />}>
+              <Route path="account" element={<Account />} />
+              <Route path="settings" element={<Settings />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="orders" element={<p>Orders</p>} />
+              <Route path="order/:id" element={<p>Order</p>} />
+            </Route>
+          </Route>
+
+          <Route>
+            <Route path="login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
           </Route>
         </Routes>
       </BrowserRouter>

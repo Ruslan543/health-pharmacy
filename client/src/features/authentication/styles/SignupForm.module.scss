@@ -1,0 +1,36 @@
+.signup {
+  & :global(.btn-primary) {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+    justify-self: center;
+
+    @media only screen and (max-width: 38.75em) {
+      grid-row: 7 / span 1;
+    }
+  }
+}
+
+.formData {
+  width: auto;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 30rem 30rem;
+  grid-template-rows: repeat(4, auto);
+
+  @media only screen and (max-width: 38.75em) {
+    width: 80%;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn {
+  grid-column: 1 / -1;
+  grid-row: 4 / 5;
+  justify-self: center;
+
+  @media only screen and (max-width: 38.75em) {
+    grid-row: 7 / span 1;
+  }
+}

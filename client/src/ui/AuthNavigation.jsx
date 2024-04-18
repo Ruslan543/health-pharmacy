@@ -5,7 +5,7 @@ import styles from "./styles/AuthNavigation.module.scss";
 function AuthNavigation() {
   return (
     <div className={`${stylesNavigation.auth} ${styles.authNavigation}`}>
-      <Link to="/singup" className={styles.signup}>
+      <Link to="/signup" className={styles.signup}>
         Регистрация
       </Link>
 

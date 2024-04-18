@@ -178,3 +178,20 @@ input[type="number"]::-webkit-inner-spin-button {
 .tsqd-parent-container {
   font-size: 1.8rem;
 }
+
+.leaflet-control-attribution.leaflet-control {
+  display: none;
+}
+
+.leaflet-control-zoom {
+  display: flex;
+  flex-direction: column;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+  background-color: var(--color-yellow-light) !important;
+}
+
+.leaflet-control-zoom-out {
+}

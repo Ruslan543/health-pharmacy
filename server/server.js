@@ -25,3 +25,18 @@ process.on("SIGTERM", () => {
     console.log("💥 Процесс прекращен!");
   });
 });
+
+// import { Server } from "socket.io";
+// import { createServer } from "http";
+
+// const httpServer = createServer(app);
+// const io = new Server(httpServer);
+
+// io.on("connection", (socket) => {
+//   console.log("ID: ", socket.id);
+//   socket.on("message", (message) => console.log("Message: ", message));
+
+//   socket.on("disconnect", () => {
+//     console.log(`Client with id ${socket.id} disconnected`);
+//   });
+// });

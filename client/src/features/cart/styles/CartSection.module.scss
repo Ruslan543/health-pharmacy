@@ -1,0 +1,39 @@
+.cart {
+  height: 100vh;
+  padding: 15rem 5rem 5rem;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: min-content;
+  column-gap: 15rem;
+  row-gap: 5rem;
+
+  @media only screen and (max-width: 70em) {
+    column-gap: 10rem;
+  }
+
+  @media only screen and (max-width: 48rem) {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr min-content;
+  }
+
+  @media only screen and (max-width: 38.75em) {
+    height: auto;
+    min-height: 100vh;
+    padding: 15rem 2.5rem 5rem;
+  }
+}
+
+.headingSecondary {
+  grid-column: 1 / -1;
+}
+
+.list {
+  height: 100%;
+  overflow-y: scroll;
+
+  @media only screen and (max-width: 38.75em) {
+    height: auto;
+    overflow-y: auto;
+  }
+}

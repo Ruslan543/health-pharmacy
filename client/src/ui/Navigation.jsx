@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 
-import Search from "../features/Search";
 import AuthNavigation from "./AuthNavigation";
+import Search from "../features/search/Search";
 import styles from "./styles/Navigation.module.scss";
 
 function Navigation() {
+  function handleScroll(elementId) {
+    return () => {
+      setTimeout(() => {
+        document.getElementById(elementId).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    };
+  }
+
   return (
     <nav className={styles.navigation}>
       <Link to="/" className={styles.logoLink}>
@@ -25,7 +35,11 @@ function Navigation() {
         </li>
 
         <li className={styles.item}>
-          <Link to="#contacts" className={styles.link}>
+          <Link
+            to="/"
+            className={styles.link}
+            onClick={handleScroll("contacts")}
+          >
             Контакты
           </Link>
         </li>

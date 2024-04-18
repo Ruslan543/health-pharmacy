@@ -1,0 +1,10 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-right: 1rem;
+
+  @media only screen and (max-width: 38.75em) {
+    padding-right: 0;
+  }
+}

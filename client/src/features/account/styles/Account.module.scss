@@ -1,0 +1,61 @@
+.cabinet {
+  padding: 18rem 0rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5rem;
+
+  @media only screen and (max-width: 38.75em) {
+    grid-template-columns: 1fr;
+    row-gap: 7rem;
+  }
+}
+
+.photoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.photo {
+  display: block;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+
+  @media only screen and (max-width: 38.75em) {
+    width: 15rem;
+    height: 15rem;
+  }
+}
+
+.btnChange {
+  font-size: 1.6rem;
+
+  @media only screen and (max-width: 38.75em) {
+    font-size: 2.4rem;
+  }
+
+  &:hover {
+    color: var(--color-primary);
+  }
+}
+
+.data {
+  grid-row: 1 / 4;
+  grid-column: 2 / 3;
+
+  padding-left: 7rem;
+
+  @media only screen and (max-width: 38.75em) {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+    padding-left: 0;
+  }
+}
+
+.formData {
+}
+
+.profile {
+}

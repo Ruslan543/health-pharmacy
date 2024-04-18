@@ -1,0 +1,30 @@
+.cartTotal {
+  align-self: start;
+
+  display: inline-block;
+  padding: 1.5rem 2.5rem;
+  box-shadow: 0px 0px 3px rgba(#000000, 0.25);
+  border-radius: 12px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+
+  &:not(:last-of-type) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.text {
+  font-weight: 300;
+}
+
+.quantity {
+  font-weight: 500;
+}
+
+.button {
+  width: 100%;
+  margin-top: 1rem;
+}

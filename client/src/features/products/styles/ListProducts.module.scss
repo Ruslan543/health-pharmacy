@@ -1,0 +1,29 @@
+.listProducts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(25rem, 1fr));
+  justify-content: space-between;
+  column-gap: 5rem;
+  row-gap: 7rem;
+
+  @media only screen and (max-width: 70em) {
+    column-gap: 2.5rem;
+  }
+
+  @media only screen and (max-width: 51.56em) {
+    grid-template-columns: repeat(3, minmax(22rem, 1fr));
+    column-gap: 5rem;
+  }
+
+  @media only screen and (max-width: 38.75em) {
+    grid-template-columns: repeat(2, minmax(22rem, 1fr));
+    column-gap: 7rem;
+  }
+
+  @media only screen and (max-width: 32.63em) {
+    column-gap: 4rem;
+  }
+
+  @media only screen and (max-width: 29.06em) {
+    column-gap: 2rem;
+  }
+}

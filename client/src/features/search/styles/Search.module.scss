@@ -23,6 +23,7 @@
   color: var(--color-grey-dark);
 
   transition: box-shadow 0.3s;
+  cursor: pointer;
 
   @media only screen and (max-width: 38.75em) {
     font-size: 2rem;
@@ -35,6 +36,7 @@
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px var(--color-primary);
+    cursor: auto;
   }
 
   &::placeholder {

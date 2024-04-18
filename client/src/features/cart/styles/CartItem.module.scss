@@ -1,0 +1,53 @@
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 100%;
+}
+
+.count {
+  margin: 0 2rem;
+}
+
+.name {
+  margin-right: auto;
+}
+
+.price {
+  font-weight: 500;
+  margin-right: 2rem;
+
+  @media only screen and (max-width: 38.75em) {
+    white-space: nowrap;
+  }
+}
+
+.quantityBox {
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  font-weight: 500;
+  margin: 0 1rem;
+}
+
+.button {
+  line-height: 1;
+  padding: 1rem 1.5rem;
+  // padding: 0;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::content {
+    color: #000;
+  }
+}
