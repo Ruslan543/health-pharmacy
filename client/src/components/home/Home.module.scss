@@ -41,10 +41,15 @@
 }
 
 .btn {
-  margin-top: 6.5rem;
+  &,
+  &:link,
+  &:visited {
+    margin-top: 6.5rem;
+    display: inline-block;
 
-  @media only screen and (max-width: 51.56em) {
-    margin: 6.5rem auto 0;
+    @media only screen and (max-width: 51.56em) {
+      margin: 6.5rem auto 0;
+    }
   }
 }
 

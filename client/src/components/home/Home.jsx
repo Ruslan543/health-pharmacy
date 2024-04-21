@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 
 function Home() {
@@ -11,9 +12,9 @@ function Home() {
           забронировать прямо на сайте!
         </p>
 
-        <button className={`btn-primary ${styles.btn}`}>
+        <Link to="/products" className={`btn-primary ${styles.btn}`}>
           Посмотреть препараты
-        </button>
+        </Link>
       </div>
 
       <div className={styles.imageBox}>

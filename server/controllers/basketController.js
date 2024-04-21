@@ -59,11 +59,11 @@ class BasketController {
   }
 
   async getAllBaskets(request, response, next) {
-    const basket = await this.filterBasket(request.filterObject);
+    const baskets = await this.filterBasket(request.filterObject);
 
     response.status(200).json({
       status: "success",
-      data: { basket },
+      data: { baskets },
     });
   }
 
