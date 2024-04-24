@@ -1,6 +1,5 @@
 import { SERVER_URL } from "../utils/constans";
 import { queryClient, invalidateQueries } from "../store/queryClient";
-import { middlewareAuth } from "./middlewares";
 
 const baseUrl = `${SERVER_URL}/users`;
 
