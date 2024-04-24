@@ -6,80 +6,80 @@ import { useProducts } from "./useProducts";
 function ListProducts() {
   const { products, isLoading } = useProducts();
 
-  return <Spinner />;
+  if (isLoading) return <Spinner />;
 
-  // return (
-  //   <div className={styles.listProducts}>
-  //     {products.map((product) => (
-  //       <ProductItem product={product} key={product._id} />
-  //     ))}
+  return (
+    <div className={styles.listProducts}>
+      {products.map((product) => (
+        <ProductItem product={product} key={product._id} />
+      ))}
 
-  //     {/* <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     />
-  //     <ProductItem
-  //       product={{
-  //         image: "/medicaments-1.png",
-  //         name: "Ибуфен Д",
-  //         price: "7.99 BYN",
-  //         quantity: 1,
-  //       }}
-  //     /> */}
-  //   </div>
-  // );
+      {/* <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      />
+      <ProductItem
+        product={{
+          image: "/medicaments-1.png",
+          name: "Ибуфен Д",
+          price: "7.99 BYN",
+          quantity: 1,
+        }}
+      /> */}
+    </div>
+  );
 }
 
 export default ListProducts;

@@ -1,0 +1,47 @@
+.userNavigation {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.basket {
+}
+
+.icon {
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+  fill: var(--color-yellow-dark);
+  cursor: pointer;
+
+  transition: all 0.3s;
+
+  @media only screen and (max-width: 38.75em) {
+    display: none;
+  }
+
+  &:hover {
+    fill: var(--color-primary);
+  }
+}
+
+.userBox {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+.name {
+  @media only screen and (max-width: 38.75em) {
+    display: none;
+  }
+}
+
+.avatar {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 100%;
+  cursor: pointer;
+}

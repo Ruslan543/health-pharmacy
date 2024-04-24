@@ -8,12 +8,15 @@ class Email {
     this.from = `HEALTH pharmacy <${process.env.EMAIL_FROM}>`;
   }
 
-  newTransport() {
+  _newTransport() {
     const transport = nodemailer.createTransport({
-      host: smtp.host,
-      port: smtp.port,
-      secure: smtp.secure,
-      auth: { user, pass },
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      secure: process.env.EMAIL_SECURE,
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
     });
 
     return transport;
@@ -28,7 +31,7 @@ class Email {
       html: `This <i>message</i> was sent from <strong>${this.url}</strong> server.`,
     };
 
-    await this.newTransport().sendMail(mailOptions);
+    await this._newTransport().sendMail(mailOptions);
   }
 
   async sendPasswordReset() {

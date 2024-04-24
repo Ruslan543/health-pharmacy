@@ -60,6 +60,7 @@ class ErrorController {
         message: error.message,
         name: error.name,
         errorMessages: error.errorMessages,
+        fieldDublicate: error.fieldDublicate,
       });
     }
 

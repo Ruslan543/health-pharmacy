@@ -87,9 +87,12 @@ class AuthController {
     const { body } = request;
 
     const newUser = await User.create({
+      name: body.name,
+      surname: body.surname,
       email: body.email,
       password: body.password,
       passwordConfirm: body.passwordConfirm,
+      birthday: body.birthday,
       createdAt: Date.now(),
     });
 

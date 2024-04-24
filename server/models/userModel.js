@@ -58,6 +58,7 @@ const userSchema = new mongoose.Schema(
       type: Date,
       required: [true, "Пользователь должен иметь birthday"],
     },
+    tokenCreatedAt: Date,
   },
   {
     methods: {
@@ -88,6 +89,17 @@ const userSchema = new mongoose.Schema(
         );
 
         return jwtTimestamp < changedTimestamp;
+      },
+
+      matchesTokenCreatedAt(timestamp) {
+        if (!this.tokenCreatedAt) return false;
+
+        const tokenCreatedAtTimestamp = parseInt(
+          this.tokenCreatedAt.getTime() / 1000,
+          10
+        );
+
+        return tokenCreatedAtTimestamp === timestamp;
       },
     },
     toObject: { virtuals: true },

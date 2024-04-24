@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import { useUser } from "../features/authentication/useUser";
 
-import AuthNavigation from "./AuthNavigation";
 import Search from "../features/search/Search";
+import AuthNavigation from "./AuthNavigation";
+import UserNavigation from "./UserNavigation";
 import styles from "./styles/Navigation.module.scss";
 
 function Navigation() {
+  const { user } = useUser();
+
   function handleScroll(elementId) {
     return () => {
       setTimeout(() => {
@@ -46,7 +50,9 @@ function Navigation() {
       </ul>
 
       <Search />
-      <AuthNavigation />
+
+      {!user && <AuthNavigation />}
+      {user && <UserNavigation />}
     </nav>
   );
 }
