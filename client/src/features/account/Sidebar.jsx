@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useUser } from "../authentication/useUser";
 import { useLogout } from "../authentication/useLogout";
 import styles from "./styles/Sidebar.module.scss";
 
 function Sidebar() {
+  const { user } = useUser();
   const { logout } = useLogout();
 
   return (
@@ -19,6 +21,14 @@ function Sidebar() {
             Настройки
           </NavLink>
         </li>
+
+        {user.role === "admin" && (
+          <li className={styles.item}>
+            <NavLink to="/admin" className={styles.link}>
+              Админ
+            </NavLink>
+          </li>
+        )}
 
         <li className={styles.item}>
           <button className={styles.btnExit} onClick={logout}>

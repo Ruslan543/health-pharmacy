@@ -21,7 +21,11 @@ basketSchema.virtual("products", {
 });
 
 basketSchema.pre(/^find/, function (next) {
-  this.populate("products");
+  this.populate({
+    path: "products",
+    match: { purchased: false },
+    populate: "product",
+  });
   next();
 });
 

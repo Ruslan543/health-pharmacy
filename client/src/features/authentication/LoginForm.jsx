@@ -12,8 +12,8 @@ function LoginForm() {
   const navigate = useNavigate();
   const { login, isPending } = useLogin();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("ruslan5@gmail.com");
+  const [password, setPassword] = useState("12345678");
 
   function handleLogin(event) {
     event.preventDefault();

@@ -7,6 +7,7 @@ function getQuery(queryClient) {
 
     if (!data) {
       queryClient.setQueryData(["user"], null);
+      queryClient.setQueryData(["cart"], null);
       queryClient.setQueryData(["isAuth"], (oldData) => {
         if (oldData !== undefined) return false;
       });
@@ -15,7 +16,9 @@ function getQuery(queryClient) {
     }
 
     queryClient.setQueryData(["user"], data.data.user);
+    queryClient.setQueryData(["cart"], data.data.user.basket);
     queryClient.setQueryData(["isAuth"], true);
+
     return data.accessToken;
   };
 }

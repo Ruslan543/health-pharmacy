@@ -141,11 +141,7 @@ class BasketController {
   }
 
   async getMyBasket(request, response, next) {
-    const basket = await Basket.findOne({ user: request.user._id }).populate({
-      path: "products",
-      match: { purchased: false },
-      populate: "product",
-    });
+    const basket = await Basket.findOne({ user: request.user._id });
 
     if (!basket) {
       return next(new AppError("Корзина для пользователя не найдена", 404));

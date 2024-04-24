@@ -17,6 +17,7 @@ import About from "./pages/About";
 import ProtectedRoute from "./ui/ProtectedRoute";
 import GetUser from "./ui/GetUser";
 import ProtectedAuth from "./ui/ProtectedAuth";
+import PageNotFound from "./ui/PageNotFound";
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="signup" element={<Signup />} />
             </Route>
+
+            <Route path="*" element={<PageNotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
