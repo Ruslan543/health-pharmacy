@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import { MONTH_TO_NUMBER } from "../../utils/constans";
 import { useSignupReducer } from "./useSignupReducer";
 import { useSignup } from "./useSignup";
-import { convertDate } from "../../utils/helper";
 
 import InputBox from "../account/InputBox";
 import InputBirthBox from "../account/InputBirthBox";
@@ -42,8 +41,17 @@ function SignupForm() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const { name, surname, email, password, passwordConfirm, day, year } =
-      state;
+    const {
+      name,
+      surname,
+      email,
+      password,
+      passwordConfirm,
+      day,
+      month,
+      year,
+    } = state;
+
     const isFilledData =
       name && surname && email && password && passwordConfirm && day && year;
 
@@ -51,11 +59,7 @@ function SignupForm() {
       return toast.error("Заполните все поля!");
     }
 
-    const birthday = new Date(
-      state.year,
-      MONTH_TO_NUMBER[state.month],
-      state.day
-    );
+    const birthday = new Date(year, MONTH_TO_NUMBER[month], day);
 
     signup(
       { name, surname, email, password, passwordConfirm, birthday },

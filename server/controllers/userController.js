@@ -9,6 +9,7 @@ class UserController {
     this.getOne = catchAsync(this.getOne.bind(this));
     this.updateUser = catchAsync(this.updateUser.bind(this));
     this.deleteUser = catchAsync(this.deleteUser.bind(this));
+    this.updateMe = catchAsync(this.updateMe.bind(this));
   }
 
   async getMe(request, response, next) {
@@ -57,6 +58,47 @@ class UserController {
       status: "success",
       data: null,
     });
+  }
+
+  async updateMe(request, response, next) {
+    const { password, passwordConfirm } = request.body;
+
+    if (password || passwordConfirm) {
+      return next(
+        new AppError(
+          "Этот маршрут не обновляет пароль! Используйте /updateMyPassword",
+          400
+        )
+      );
+    }
+
+    const filteredBody = this._filterObject(request.body, [
+      "name",
+      "surname",
+      "birthday",
+    ]);
+    const updatedUser = await User.findByIdAndUpdate(
+      request.user._id,
+      filteredBody,
+      { new: true, runValidators: true }
+    );
+
+    response.status(200).json({
+      status: "success",
+      data: { user: updatedUser },
+    });
+  }
+
+  _filterObject(object, allowedFields) {
+    const newObject = {};
+
+    Object.keys(object).forEach((element) => {
+      if (allowedFields.includes(element)) {
+        newObject[element] = object[element];
+      }
+    });
+
+    return newObject;
   }
 }
 

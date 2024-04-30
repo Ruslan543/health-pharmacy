@@ -30,7 +30,12 @@ function CartTotal() {
         <p className={styles.quantity}>{totalSum.toFixed(2)} BYN</p>
       </div>
 
-      <button className={`btn-primary ${styles.button}`}>Оформить заказ</button>
+      <button
+        className={`btn-primary ${styles.button}`}
+        disabled={!cart.products.length}
+      >
+        Оформить заказ
+      </button>
     </div>
   );
 }

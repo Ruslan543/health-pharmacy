@@ -69,9 +69,28 @@ async function deleteUser({ id, accessToken }) {
   };
 }
 
+async function updateMe({ body, accessToken }) {
+  const response = await fetch(`${baseUrl}/updateMe`, {
+    method: "PATCH",
+    body: JSON.stringify(body),
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+  const data = await response.json();
+
+  return {
+    response,
+    dataResponse: data,
+    data: data.data?.user,
+  };
+}
+
 export default {
   getUsers: middlewareAuth(getUsers),
   getUser: middlewareAuth(getUser),
   updateUser: middlewareAuth(updateUser),
   deleteUser: middlewareAuth(deleteUser),
+  updateMe: middlewareAuth(updateMe),
 };

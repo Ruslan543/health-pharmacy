@@ -11,11 +11,11 @@ router
     authController.restrictTo(["admin", "lead-guide"]),
     productBasketController.getAllProductsBasket
   )
-  .post(productBasketController.createProductBasket);
+  .post(authController.protect, productBasketController.createProductBasket);
 
 router.use(authController.protect);
 router.patch("/updateQuantity/:id", productBasketController.updateQuantity);
-router.use(authController.restrictTo(["admin", "lead-guide"]));
+// router.use(authController.restrictTo(["admin", "lead-guide"]));
 
 router
   .route("/:id")

@@ -71,12 +71,16 @@ class ProductBasketController {
     }
 
     let productBasket = await ProductBasket.findOne({
-      basket: request.body.basket,
+      basket: request.user.basket._id,
       product: product._id,
+      purchased: false,
     });
 
     if (!productBasket) {
-      productBasket = await ProductBasket.create(request.body);
+      productBasket = await ProductBasket.create({
+        ...request.body,
+        basket: request.user.basket._id,
+      });
     } else {
       productBasket.quantity++;
       await productBasket.save();

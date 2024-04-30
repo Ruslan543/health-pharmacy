@@ -19,6 +19,22 @@ async function getProducts() {
   }
 }
 
+async function getProductsInUserBasket({ user }) {
+  try {
+    const response = await fetch(`${baseUrl}/userBasket/${user.basket._id}`);
+    const data = await response.json();
+
+    if (data.status !== "success") {
+      throw data;
+    }
+
+    return data.data.products;
+  } catch (error) {
+    console.log(error.message);
+    throw error.message;
+  }
+}
+
 async function getProduct({ id }) {
   try {
     const response = await fetch(`${baseUrl}/${id}`);
@@ -96,6 +112,7 @@ async function deleteProduct({ id, accessToken }) {
 
 export default {
   getProducts,
+  getProductsInUserBasket,
   getProduct,
   createProduct: middlewareAuth(createProduct),
   updateProduct: middlewareAuth(updateProduct),

@@ -14,6 +14,7 @@ router.get("/logout", authController.logout);
 router.use(authController.protect);
 
 router.get("/me", userController.getMe, userController.getOne);
+router.patch("/updateMe", userController.updateMe);
 router.use("/:userId/basket", basketRouter);
 
 router.use(authController.restrictTo(["admin", "lead-guide"]));

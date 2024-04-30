@@ -89,6 +89,10 @@ button {
   cursor: pointer;
 
   transition: all 0.3s;
+
+  &:disabled {
+    cursor: no-drop;
+  }
 }
 
 input {

@@ -11,3 +11,16 @@ export function convertDate(date) {
 
   return dateString;
 }
+
+export function createReducerActions({ dispatch, actionNames }) {
+  const actions = actionNames.reduce((acc, name) => {
+    return {
+      ...acc,
+      [name]: (payload) => {
+        dispatch({ type: name, payload });
+      },
+    };
+  }, {});
+
+  return actions;
+}

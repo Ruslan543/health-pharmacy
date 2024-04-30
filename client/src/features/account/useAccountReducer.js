@@ -1,12 +1,9 @@
-import { useMemo, useReducer } from "react";
+import { useReducer, useMemo } from "react";
 import { createReducerActions } from "../../utils/helper";
 
 const initialState = {
   name: "",
   surname: "",
-  email: "",
-  password: "",
-  passwordConfirm: "",
   day: "",
   month: "Январь",
   year: "",
@@ -19,15 +16,6 @@ function reducer(state, action) {
 
     case "setSurname":
       return { ...state, surname: action.payload };
-
-    case "setEmail":
-      return { ...state, email: action.payload };
-
-    case "setPassword":
-      return { ...state, password: action.payload };
-
-    case "setPasswordConfirm":
-      return { ...state, passwordConfirm: action.payload };
 
     case "setDay": {
       const { payload } = action;
@@ -46,6 +34,9 @@ function reducer(state, action) {
       return { ...state, year: payload };
     }
 
+    case "init":
+      return { ...state, ...action.payload };
+
     default:
       throw new Error("Action unknown!");
   }
@@ -54,21 +45,20 @@ function reducer(state, action) {
 const actionNames = [
   "setName",
   "setSurname",
-  "setEmail",
-  "setPassword",
-  "setPasswordConfirm",
   "setDay",
   "setMonth",
   "setYear",
+  "init",
 ];
 
-function useSignupReducer() {
+function useAccountReducer() {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const actions = useMemo(() => {
-    return createReducerActions({ dispatch, actionNames });
-  }, []);
+  const actions = useMemo(
+    () => createReducerActions({ dispatch, actionNames }),
+    []
+  );
 
   return { state, actions };
 }
 
-export { useSignupReducer };
+export { useAccountReducer };
