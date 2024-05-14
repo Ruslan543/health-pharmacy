@@ -39,8 +39,7 @@ function FormAccount() {
 
   useEffect(
     function () {
-      // const date = user.birthday;
-      const date = new Date(1092171600000);
+      const date = new Date(user.birthday);
       const day = date.getDate();
       const month = date.getMonth();
       const year = date.getFullYear();
@@ -73,27 +72,21 @@ function FormAccount() {
   }
 
   function setIsSameData() {
-    let isEqual;
-
+    const { name, surname, day, month, year } = state;
     const birthdayState = new Date(
       state.year,
       MONTH_TO_NUMBER[state.month],
       state.day
     ).getTime();
-    const birthdayUser = new Date(1092171600000).getTime();
-    // const birthdayUser = new Date(user.birthday).getTime();
+    const birthdayUser = new Date(user.birthday).getTime();
 
-    if (
+    const isEqual =
       user.name === state.name &&
       user.surname === state.surname &&
-      birthdayUser === birthdayState
-    ) {
-      isEqual = true;
-    } else {
-      isEqual = false;
-    }
+      birthdayUser === birthdayState;
+    const isFilledData = name && surname && day && month && year;
 
-    return isEqual;
+    return isEqual || !isFilledData;
   }
 
   return (
@@ -130,7 +123,7 @@ function FormAccount() {
         className={`btn-primary ${styles.btnSave}`}
         disabled={isPending || isSameData}
       >
-        Сохранить изменения
+        {isPending ? "Загрузка..." : "Сохранить изменения"}
       </button>
     </form>
   );

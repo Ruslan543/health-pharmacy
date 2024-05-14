@@ -26,6 +26,7 @@ class AuthController {
     this.resetPassword = catchAsync(this.resetPassword.bind(this));
     this.checkResetToken = catchAsync(this.checkResetToken.bind(this));
     this.updatePassword = catchAsync(this.updatePassword.bind(this));
+    this.updateEmail = catchAsync(this.updateEmail.bind(this));
   }
 
   _signAccessToken(id) {
@@ -55,7 +56,6 @@ class AuthController {
       httpOnly: true,
       secure:
         request.secure || request.headers["x-forwarded-proto"] === "https",
-      // sameSite: "None",
     };
 
     response.cookie("accessToken", accessToken, {
@@ -93,7 +93,7 @@ class AuthController {
       password: body.password,
       passwordConfirm: body.passwordConfirm,
       birthday: body.birthday,
-      createdAt: Date.now(),
+      createAt: Date.now(),
     });
 
     const basket = await Basket.create({ user: newUser._id });
@@ -199,7 +199,7 @@ class AuthController {
     if (currentUser.changedPasswordAfter(decoded.iat)) {
       return next(
         new AppError(
-          "Пользователь изменил пароль! Пожалуйста войдите ещё раз",
+          "Пользователь изменил пароль! Пожалуйста войдите ещё раз!",
           401
         )
       );
@@ -344,6 +344,23 @@ class AuthController {
     await user.save();
 
     this._createSendTokens(user, 200, request, response);
+  }
+
+  async updateEmail(request, response, next) {
+    const { email, passwordCurrent } = request.body;
+    const user = await User.findById(request.user._id).select("+password");
+
+    if (!(await user.correctPassword(passwordCurrent, user.password))) {
+      return next(new AppError("Неверный пароль!", 401));
+    }
+
+    user.email = email;
+    await user.save({ validateModifiedOnly: true });
+
+    response.status(200).json({
+      status: "success",
+      data: { user },
+    });
   }
 }
 

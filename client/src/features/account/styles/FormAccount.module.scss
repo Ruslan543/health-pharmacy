@@ -61,6 +61,7 @@
     color: inherit;
     font-size: 1.6rem;
     width: 100%;
+    text-align: center;
 
     @media only screen and (max-width: 38.75em) {
       font-size: 2.4rem;
@@ -68,15 +69,23 @@
   }
 
   &Birthday {
-    width: 2rem;
+    width: 3.5rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
     @media only screen and (max-width: 38.75em) {
-      width: 2.5rem;
+      width: 3.5rem;
     }
   }
 
   &YearBirth {
     width: 4rem;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 
     @media only screen and (max-width: 38.75em) {
       width: 5.5rem;

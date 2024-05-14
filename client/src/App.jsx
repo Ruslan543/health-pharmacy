@@ -68,11 +68,9 @@ function App() {
           success: { duration: 5000 },
           error: { duration: 5000 },
           style: {
-            // background: "var(--color-primary)",
             background: "var(--color-yellow-light)",
             color: "var(--color-grey-dark)",
             fontSize: "15px",
-            // boxShadow: "0 0 3px rgba(0, 0, 0, 0.25)",
             border: "1px solid var(--color-grey-light)",
           },
         }}

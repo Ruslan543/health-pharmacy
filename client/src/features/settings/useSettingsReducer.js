@@ -10,13 +10,13 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "setEmail":
-      return { ...state, name: action.payload };
+      return { ...state, email: action.payload };
 
     case "setPassword":
-      return { ...state, surname: action.payload };
+      return { ...state, password: action.payload };
 
     case "setPasswordConfirm":
-      return { ...state, month: action.payload };
+      return { ...state, passwordConfirm: action.payload };
 
     case "init":
       return { ...state, ...action.payload };

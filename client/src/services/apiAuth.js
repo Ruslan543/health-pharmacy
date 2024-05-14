@@ -125,7 +125,7 @@ async function refreshToken() {
   }
 }
 
-export async function logout() {
+async function logout() {
   try {
     localStorage.removeItem("refreshToken");
 

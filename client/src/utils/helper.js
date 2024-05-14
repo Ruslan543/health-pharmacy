@@ -1,3 +1,5 @@
+import { NUMBER_DAYS_IN_MONTHS } from "../utils/constans";
+
 export function classNameJoin(classes) {
   return classes.join(" ");
 }
@@ -23,4 +25,14 @@ export function createReducerActions({ dispatch, actionNames }) {
   }, {});
 
   return actions;
+}
+
+export function getDaysInMonth(month, year) {
+  const days = NUMBER_DAYS_IN_MONTHS[month];
+
+  if (month === "Февраль" && year % 4 === 0) {
+    return 29;
+  }
+
+  return days;
 }

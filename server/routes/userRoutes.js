@@ -8,6 +8,7 @@ const router = express.Router();
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
 
+router.get("/forgotPassword", authController.forgotPassword);
 router.get("/refreshToken", authController.refreshToken);
 router.get("/logout", authController.logout);
 
@@ -15,6 +16,7 @@ router.use(authController.protect);
 
 router.get("/me", userController.getMe, userController.getOne);
 router.patch("/updateMe", userController.updateMe);
+router.patch("/updateMyEmail", authController.updateEmail);
 router.use("/:userId/basket", basketRouter);
 
 router.use(authController.restrictTo(["admin", "lead-guide"]));

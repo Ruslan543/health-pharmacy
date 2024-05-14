@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import crypto from "crypto";
 import validator from "validator";
 
 const userSchema = new mongoose.Schema(
@@ -101,6 +102,19 @@ const userSchema = new mongoose.Schema(
 
         return tokenCreatedAtTimestamp === timestamp;
       },
+
+      createPasswordResetToken() {
+        const resetToken = crypto.randomBytes(32).toString("hex");
+
+        this.passwordResetToken = crypto
+          .createHash("sha256")
+          .update(resetToken)
+          .digest("hex");
+
+        this.passwordResetExpires = Date.now() + 10 * 1000 * 60;
+
+        return resetToken;
+      },
     },
     toObject: { virtuals: true },
     toJSON: { virtuals: true },
@@ -137,13 +151,6 @@ userSchema.pre("save", function (next) {
   if (!this.isModified("password") || this.isNew) return next();
 
   this.passwordChangedAt = Date.now() - 1000;
-  next();
-});
-
-userSchema.post("save", function (document, next) {
-  this.password = undefined;
-  this.createAt = undefined;
-
   next();
 });
 

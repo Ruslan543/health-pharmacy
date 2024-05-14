@@ -1,21 +1,38 @@
 import PropTypes from "prop-types";
+import { NUM_YEAR } from "../../utils/constans";
+import { getDaysInMonth } from "../../utils/helper";
 import styles from "./styles/FormAccount.module.scss";
 
 function InputBirthBox({ options }) {
+  const currentYear = new Date().getFullYear();
   const { birthday, dateOfBirth, yearBirth } = options.inputs;
+
+  const daysArray = Array.from(
+    { length: getDaysInMonth(dateOfBirth.value, yearBirth.value) },
+    (_, index) => index + 1
+  );
+  const yearsArray = Array.from(
+    { length: NUM_YEAR },
+    (_, index) => currentYear - index
+  );
 
   return (
     <div className={styles.inputBirthBox}>
       <div className={styles.inputBoxBirthday}>
-        <input
+        <select
           className={styles.inputBirthday}
-          id="birthday"
           name="birthday"
-          type="number"
-          placeholder="11"
           value={birthday.value}
           onChange={birthday.onChange}
-        />
+        >
+          <option disabled>Выберите день</option>
+
+          {daysArray.map((day) => (
+            <option value={day} key={day}>
+              {day}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className={styles.lineVertical} />
@@ -46,15 +63,20 @@ function InputBirthBox({ options }) {
       <div className={styles.lineVertical} />
 
       <div className={styles.inputBoxYearBirth}>
-        <input
+        <select
           className={styles.inputYearBirth}
-          id="year-of-birth"
           name="year-of-birth"
-          type="number"
-          placeholder="2004"
           value={yearBirth.value}
           onChange={yearBirth.onChange}
-        />
+        >
+          <option disabled>Выберите год</option>
+
+          {yearsArray.map((year) => (
+            <option value={year} key={year}>
+              {year}
+            </option>
+          ))}
+        </select>
       </div>
     </div>
   );
